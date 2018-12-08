@@ -7,11 +7,13 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <header className="container" id="header">
-        <div className="row">
-          <div className="col-12">
-            <h1>Welcome</h1>
-          </div>
+      <header class="jumbotron jumbotron-fluid container" id="header">
+        <div class="container">
+          <h1 class="display-4">Welcome to Cryptomize</h1>
+          <p class="lead">
+            This is a modified jumbotron that occupies the entire horizontal
+            space of its parent.
+          </p>
         </div>
       </header>
     );
