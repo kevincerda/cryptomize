@@ -4,8 +4,8 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'public');
 
 module.exports = {
-  mode: 'devleopment',
-  entry: path.resolve(SRC_DIR, 'index.js');
+  mode: 'development',
+  entry: path.resolve(SRC_DIR, 'index.js'),
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,
@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        text: /\.(js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -27,4 +27,4 @@ module.exports = {
       }
     ]
   }
-}
+};
