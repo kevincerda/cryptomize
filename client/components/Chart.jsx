@@ -19,9 +19,9 @@ export default class ResultsChart extends Component {
           ],
           datasets: [
             {
-              label: 'My First dataset',
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
+              label: 'BITCOIN',
+              color: 'rgba(255, 186, 0, 1)',
+              borderColor: 'rgb(255, 186, 0)',
               data: [0, 10, 5, 2, 20, 30, 45]
             }
           ]
@@ -45,10 +45,12 @@ export default class ResultsChart extends Component {
 
   render() {
     return (
-      <section className="container" id="chart">
-        <div className="row">
-          <div className="col-12">
-            <canvas ref="chart" />
+      <section className="container-fluid" id="chart">
+        <div className="container">
+          <div className="row">
+            <div className="chart-container col-12">
+              <canvas ref="chart" />
+            </div>
           </div>
         </div>
       </section>
