@@ -6,7 +6,7 @@
 
 body {
   color: #fff !important;
-  background-color: #181a20 !important;
+  background-color: #131519 !important;
 }
 
 .container {
@@ -20,6 +20,12 @@ body {
 */
 
 #header {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #131519;
+}
+
+#chart {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-color: #181a20;
