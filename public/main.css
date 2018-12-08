@@ -1,4 +1,26 @@
+/*
+***************************************************
+//////////////// Defaults & Resets ////////////////
+***************************************************
+*/
+
 body {
   color: #fff !important;
-  background-color: #18183e !important;
+  background-color: #4f48ae !important;
+}
+
+.container {
+  min-width: 1600px;
+}
+
+/*
+***************************************************
+///////////////// Section Styles //////////////////
+***************************************************
+*/
+
+#header {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #181a20;
 }
