@@ -2,7 +2,7 @@
 
 ## Basic Requirements
 
-Starting from scratch (blank index.html, blank app.jsx and blank server.jsfiles), build a single-page app for viewing the historical price data for any cryptocurrency.
+Starting from scratch (blank index.html, blank app.jsx and blank server.js files), build a single-page app for viewing the historical price data for any cryptocurrency.
 
 ### Use:
 
