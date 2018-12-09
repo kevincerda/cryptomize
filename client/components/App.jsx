@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Header from './Header.jsx';
+import ResultsChart from './Chart.jsx';
+import LiveResults from './LiveResults.jsx';
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <Header />
+        <ResultsChart />
+        <LiveResults />
       </div>
     );
   }
