@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header.jsx';
 import ResultsChart from './Chart.jsx';
+import LiveResults from './LiveResults.jsx';
 
 export default class App extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class App extends Component {
       <div>
         <Header />
         <ResultsChart />
+        <LiveResults />
       </div>
     );
   }
