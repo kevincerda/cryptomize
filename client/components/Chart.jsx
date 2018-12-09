@@ -88,7 +88,7 @@ export default class ResultsChart extends Component {
         <div className="container">
           <div className="row">
             <div className="chart-container col-12">
-              <canvas ref="chart" />
+              <canvas ref="chart" height="15rem" width="40rem" />
             </div>
           </div>
         </div>
