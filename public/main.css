@@ -19,6 +19,10 @@ body {
   min-width: 1600px;
 }
 
+button {
+  border-style: none;
+}
+
 /*
 ***************************************************
 ///////////////// Section Styles //////////////////
@@ -30,11 +34,15 @@ body {
 }
 
 #chart {
-  height: 45rem;
+  min-height: 50rem;
   background-color: #181a20;
   box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
   -webkit-box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
   -moz-box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
+}
+
+#config-panel {
+  min-height: 100px;
 }
 
 #live-results {
@@ -50,4 +58,18 @@ body {
 .new-section {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.button {
+  color: #fff;
+  font-size: 1rem;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: transparent;
+}
+
+.active {
+  background-color: rgb(255, 186, 0);
 }

@@ -87,6 +87,14 @@ export default class ResultsChart extends Component {
       <section className="new-section container-fluid" id="chart">
         <div className="container">
           <div className="row">
+            <div className="col-12" id="config-panel">
+              <button className="button">7 Days</button>
+              <button className="button active">1 Month</button>
+              <button className="button">3 Months</button>
+              <button className="button">6 Months</button>
+              <button className="button">1 Year</button>
+              <button className="button">Year To Date</button>
+            </div>
             <div className="chart-container col-12">
               <canvas ref="chart" height="15rem" width="40rem" />
             </div>
