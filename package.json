@@ -21,8 +21,7 @@
     "nodemon": "^1.18.7",
     "popper.js": "^1.14.6",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "timsort": "^0.3.0"
+    "react-dom": "^16.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
