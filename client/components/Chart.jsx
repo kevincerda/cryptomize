@@ -6,59 +6,15 @@ import Chart from 'chart.js';
 export default class ResultsChart extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.fetchData = this.fetchData.bind(this);
-    this.convertObjectToArray = this.convertObjectToArray.bind(this);
-    this.getDatesAndValues = this.getDatesAndValues.bind(this);
+    this.state = {
+      dataLabels: props.labels,
+      dataValues: props.data
+    };
     this.buildChart = this.buildChart.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    getHistoricalData()
-      .then(res => {
-        this.setState({ jsonData: res.data.bpi });
-      })
-      .then(() => {
-        const jsonData = this.state.jsonData;
-        const convertedData = this.convertObjectToArray(jsonData);
-        this.setState({ convertedData: convertedData });
-      })
-      .then(() => {
-        const convertedData = this.state.convertedData;
-        const { dates, values } = this.getDatesAndValues(convertedData);
-        this.setState({ dataLabels: dates, dataValues: values });
-      })
-      .then(() => {
-        this.buildChart();
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
-  convertObjectToArray(jsonDataObj) {
-    const dataArray = [];
-    for (let i in jsonDataObj) {
-      dataArray.push([i, jsonDataObj[i]]);
-    }
-    return dataArray;
-  }
-
-  getDatesAndValues(array) {
-    return array.reduce(
-      (obj, result) => {
-        const date = result[0];
-        const value = result[1];
-        obj.dates.push(date);
-        obj.values.push(value);
-        return obj;
-      },
-      { dates: [], values: [] }
-    );
+    this.buildChart();
   }
 
   buildChart() {
