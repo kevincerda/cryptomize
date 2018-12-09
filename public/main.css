@@ -4,6 +4,12 @@
 ***************************************************
 */
 
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700');
+
+a {
+  color: rgb(255, 186, 0) !important;
+}
+
 body {
   color: #fff !important;
   background-color: #131519 !important;
@@ -20,17 +26,28 @@ body {
 */
 
 #header {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   background-color: #131519;
 }
 
 #chart {
   height: 45rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   background-color: #181a20;
   box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
   -webkit-box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
   -moz-box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
+}
+
+#live-results {
+  background-color: #0e0e0e;
+}
+
+/*
+***************************************************
+///////////////////// Classes /////////////////////
+***************************************************
+*/
+
+.new-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }

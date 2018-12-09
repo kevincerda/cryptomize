@@ -84,7 +84,7 @@ export default class ResultsChart extends Component {
 
   render() {
     return (
-      <section className="container-fluid" id="chart">
+      <section className="new-section container-fluid" id="chart">
         <div className="container">
           <div className="row">
             <div className="chart-container col-12">
