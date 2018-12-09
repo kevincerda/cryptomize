@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import axios from 'axios';
+import getHistoricalData from '../services/getHistoricalData.js';
 import Chart from 'chart.js';
 
 export default class ResultsChart extends Component {
@@ -18,9 +18,7 @@ export default class ResultsChart extends Component {
   }
 
   fetchData() {
-    const path = 'https://api.coindesk.com/v1/bpi/historical/close.json';
-    axios
-      .get(path)
+    getHistoricalData()
       .then(res => {
         this.setState({ jsonData: res.data.bpi });
       })
