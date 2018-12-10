@@ -42,7 +42,7 @@ button {
 }
 
 #chart {
-  min-height: 50rem;
+  min-height: 55rem;
   background-color: #181a20;
   box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
   -webkit-box-shadow: 1px 1px 28px 0px rgba(0, 0, 0, 0.31);
@@ -54,6 +54,7 @@ button {
 }
 
 #live-results {
+  text-align: right;
   background-color: #0e0e0e;
 }
 
@@ -68,7 +69,7 @@ button {
   padding-bottom: 5rem;
 }
 
-.button {
+.btn {
   color: #fff;
   font-size: 1rem;
   padding: 5px 15px;
@@ -80,5 +81,7 @@ button {
 }
 
 .active {
+  color: #000 !important;
+  font-weight: bold !important;
   background-color: rgb(255, 186, 0);
 }
