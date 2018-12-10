@@ -1,3 +1,4 @@
+require('@babel/polyfill');
 const path = require('path');
 
 const SRC_DIR = path.resolve(__dirname, 'client');
@@ -5,7 +6,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(SRC_DIR, 'index.js'),
+  entry: ['@babel/polyfill', path.resolve(SRC_DIR, 'index.js')],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,
