@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import moment from 'moment';
 import Chart from 'chart.js';
+import Button from './Button.jsx';
 
 export default class ResultsChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeBtn: '1-years'
+      activeBtn: '1-years',
+      buttons: [
+        { value: '7-days', name: 'Last Week' },
+        { value: '1-months', name: 'Last Month' },
+        { value: '3-months', name: '3 Months' },
+        { value: '6-months', name: '6 Months' },
+        { value: '1-years', name: 'Year To Date' }
+      ]
     };
     this.buildChart = this.buildChart.bind(this);
     this.handleDateRangeClick = this.handleDateRangeClick.bind(this);
@@ -56,54 +64,11 @@ export default class ResultsChart extends Component {
       <section className="new-section container-fluid" id="chart">
         <div className="container">
           <div className="row">
-            <div className="col-6" id="config-panel">
-              <button
-                className={
-                  this.state.activeBtn === '7-days' ? 'btn active' : 'btn '
-                }
-                onClick={this.handleDateRangeClick}
-                name={'7-days'}
-              >
-                7 Days
-              </button>
-              <button
-                className={
-                  this.state.activeBtn === '1-months' ? 'btn active' : 'btn '
-                }
-                onClick={this.handleDateRangeClick}
-                name={'1-months'}
-              >
-                1 Month
-              </button>
-              <button
-                className={
-                  this.state.activeBtn === '3-months' ? 'btn active' : 'btn '
-                }
-                onClick={this.handleDateRangeClick}
-                name={'3-months'}
-              >
-                3 Months
-              </button>
-              <button
-                className={
-                  this.state.activeBtn === '6-months' ? 'btn active' : 'btn '
-                }
-                onClick={this.handleDateRangeClick}
-                name={'6-months'}
-              >
-                6 Months
-              </button>
-              <button
-                className={
-                  this.state.activeBtn === '1-years' ? 'btn active' : 'btn '
-                }
-                onClick={this.handleDateRangeClick}
-                name={'1-years'}
-              >
-                Year To Date
-              </button>
-            </div>
-
+            <Button
+              buttons={this.state.buttons}
+              activeBtn={this.state.activeBtn}
+              handleDateRangeClick={this.handleDateRangeClick}
+            />
             <div className="chart-container col-12">
               <canvas ref="chart" height="15rem" width="40rem" />
             </div>
