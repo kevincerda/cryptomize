@@ -37,7 +37,11 @@ export default class App extends Component {
         );
         this.setState({
           dataLabels: dates,
-          dataValues: values,
+          dataValues: values
+        });
+      })
+      .then(() => {
+        this.setState({
           dataLoaded: true
         });
       })
@@ -68,16 +72,14 @@ export default class App extends Component {
   }
 
   render() {
-    const { dataLoaded } = this.state;
     return (
       <div>
         <Header />
-        {dataLoaded && (
-          <ResultsChart
-            labels={this.state.dataLabels}
-            data={this.state.dataValues}
-          />
-        )}
+        <ResultsChart
+          dataLoaded={this.state.dataLoaded}
+          labels={this.state.dataLabels}
+          values={this.state.dataValues}
+        />
         <LiveResults />
       </div>
     );
