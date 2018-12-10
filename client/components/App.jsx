@@ -11,15 +11,15 @@ export default class App extends Component {
     this.state = {
       currency: 'USD',
       dataLoaded: false,
-      defaultRange: {
-        todaysDate: moment()
-          .format('YYYY-MM-DD')
-          .toString(),
-        endDate: moment()
-          .subtract(1, 'years')
-          .format('YYYY-MM-DD')
-          .toString()
-      }
+      dataLabels: [],
+      dataValues: [],
+      startDate: moment()
+        .format('YYYY-MM-DD')
+        .toString(),
+      endDate: moment()
+        .subtract(1, 'years')
+        .format('YYYY-MM-DD')
+        .toString()
     };
 
     this.fetchHistoricalData = this.fetchHistoricalData.bind(this);
@@ -28,14 +28,13 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchHistoricalData();
+    const todaysDate = this.state.startDate;
+    const endDate = this.state.endDate;
+    this.fetchHistoricalData(endDate, todaysDate);
   }
 
-  fetchHistoricalData() {
-    getHistoricalData({
-      end: this.state.defaultRange.todaysDate,
-      start: this.state.defaultRange.endDate
-    })
+  fetchHistoricalData(start, end) {
+    getHistoricalData(start, end)
       .then(({ data }) => {
         // Sets raw json data
         this.setState({ jsonData: data.bpi });
@@ -56,10 +55,7 @@ export default class App extends Component {
         });
       })
       .then(() => {
-        // notifies chart component data is ready for chart build
-        this.setState({
-          dataLoaded: true
-        });
+        this.setState({ dataLoaded: !this.state.dataLoaded });
       })
       .catch(error => {
         console.error(error);
@@ -95,6 +91,8 @@ export default class App extends Component {
           dataLoaded={this.state.dataLoaded}
           labels={this.state.dataLabels}
           values={this.state.dataValues}
+          todaysDate={this.state.startDate}
+          fetchHistoricalData={this.fetchHistoricalData}
         />
         <LiveResults />
       </div>
