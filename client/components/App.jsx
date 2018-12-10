@@ -3,35 +3,50 @@ import Header from './Header.jsx';
 import ResultsChart from './Chart.jsx';
 import LiveResults from './LiveResults.jsx';
 import getHistoricalData from '../services/getHistoricalData.js';
+import moment from 'moment';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       currency: 'USD',
-      dataLoaded: false
+      dataLoaded: false,
+      defaultRange: {
+        todaysDate: moment()
+          .format('YYYY-MM-DD')
+          .toString(),
+        endDate: moment()
+          .subtract(1, 'years')
+          .format('YYYY-MM-DD')
+          .toString()
+      }
     };
-    this.fetchData = this.fetchData.bind(this);
+
+    this.fetchHistoricalData = this.fetchHistoricalData.bind(this);
     this.convertObjectToArray = this.convertObjectToArray.bind(this);
     this.getDatesAndValues = this.getDatesAndValues.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData();
+    this.fetchHistoricalData();
   }
 
-  fetchData() {
+  fetchHistoricalData() {
     getHistoricalData({
-      currency: this.state.currency
+      end: this.state.defaultRange.todaysDate,
+      start: this.state.defaultRange.endDate
     })
       .then(({ data }) => {
+        // Sets raw json data
         this.setState({ jsonData: data.bpi });
       })
       .then(() => {
+        // converts raw data to an array
         const convertedData = this.convertObjectToArray(this.state.jsonData);
         this.setState({ convertedData: convertedData });
       })
       .then(() => {
+        // splits dates and values for chart input
         const { dates, values } = this.getDatesAndValues(
           this.state.convertedData
         );
@@ -41,6 +56,7 @@ export default class App extends Component {
         });
       })
       .then(() => {
+        // notifies chart component data is ready for chart build
         this.setState({
           dataLoaded: true
         });
